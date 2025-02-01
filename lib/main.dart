@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:trabalho_final/views/contatos.dart';
 import 'package:trabalho_final/views/homePage.dart';
 import 'package:trabalho_final/views/login.dart';
+import 'package:trabalho_final/views/mapas.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,6 +23,8 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => Login(),
         "/homepage" : (context) => HomePage(),
+        "/contatos" : (context) => Contatos(),
+        "/mapas" : (context) => Mapas(),
       },
       debugShowCheckedModeBanner: false,
 

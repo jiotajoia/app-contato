@@ -26,6 +26,7 @@ class _HomePageState extends State<HomePage> {
                       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxcRVjeg_4VBl6L9DIpY2KPglLPA7ITm5Axw&s")),
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 InkWell(
                   child: Container(
@@ -37,7 +38,7 @@ class _HomePageState extends State<HomePage> {
                         child: Text("contatos"),
                       )),
                   onTap: () {
-                    Navigator.pushNamed(context, "/");
+                    Navigator.pushNamed(context, "/contatos");
                   },
                 ),
 
@@ -51,12 +52,14 @@ class _HomePageState extends State<HomePage> {
                         child: Text("mapas"),
                       )),
                   onTap: () {
-                    Navigator.pushNamed(context, "/");
+                    Navigator.pushNamed(context, "/mapas");
                   },
                 )
               ],
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+
               children: [
                 InkWell(
                   child: Container(
