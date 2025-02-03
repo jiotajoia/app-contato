@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+
 import 'package:location/location.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:trabalho_final/controllers/bd.controller.dart';
+import 'package:trabalho_final/controllers/utils.dart';
 
 class Mapas extends StatefulWidget {
   const Mapas({super.key});
@@ -66,11 +68,11 @@ class _MapasState extends State<Mapas> {
   carregarMarcadores() async {
     Set<Marker> marcadorLocal = {};
     
-    for (var dado in dados){''
+    for (var dado in dados){
       Marker marcador1 = Marker(
         markerId:  MarkerId(dado['nome']),
         position:  LatLng(dado['latitude'], dado['longitude']),
-        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+        icon: await getBitmapFromUrl(dado['imagem']),
         infoWindow: InfoWindow(
           title: dado['nome'],
           snippet: dado['descricao'],
@@ -85,6 +87,7 @@ class _MapasState extends State<Mapas> {
 
   @override
   Widget build(BuildContext context) {
+    carregarMarcadores(); 
     return Scaffold(
         appBar: AppBar(
           title: const Text('mapas'),

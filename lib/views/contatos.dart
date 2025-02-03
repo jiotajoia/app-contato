@@ -71,8 +71,8 @@ class _ContatosState extends State<Contatos> {
                         _controller_nome.text,
                         _controller_desc.text,
                         _controller_imag.text,
-                        int.parse(_controller_lati.text),
-                        int.parse(_controller_long.text));
+                        double.parse(_controller_lati.text),
+                        double.parse(_controller_long.text));
                     _controller_nome.text = '';
                     _controller_desc.text = '';
                     _controller_imag.text = '';
@@ -87,8 +87,7 @@ class _ContatosState extends State<Contatos> {
         });
   }
 
-  adicionar(
-      String nome, String desc, String url, int latitude, int longitude) async {
+  adicionar(String nome, String desc, String url, double latitude, double longitude) async {
     Database bd = await abrirBanco();
 
     Map<String, dynamic> reg = {
@@ -111,7 +110,7 @@ class _ContatosState extends State<Contatos> {
     });
   }
 
-  editar(int id,nome,desc,url, int latitude, int longitude) async{
+  editar(int id,String nome, String desc, String url, double latitude, double longitude) async{
     Database bd = await abrirBanco();
 
     Map<String, dynamic> novoReg = {
@@ -163,7 +162,7 @@ class _ContatosState extends State<Contatos> {
         ),
         actions: [
           ElevatedButton(onPressed: (){
-            editar(id, _controller_nome2.text, _controller_desc2.text, _controller_imag2.text,int.parse(_controller_lati2.text),int.parse(_controller_long2.text));
+            editar(id, _controller_nome2.text, _controller_desc2.text, _controller_imag2.text,double.parse(_controller_lati2.text),double.parse(_controller_long2.text));
             _controller_nome2.text = '';
             _controller_desc2.text = '';
             _controller_imag2.text = '';

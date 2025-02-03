@@ -7,7 +7,7 @@ Future<Database> abrirBanco() async {
 
   var bd = await openDatabase(path, version: 1, onCreate: (db, versao) async {
     String sql =
-        "Create table contato (id integer primary key autoincrement, nome varchar, descricao varchar, imagem varchar, latitude integer, longitude integer)";
+        "Create table contato (id integer primary key autoincrement, nome varchar, descricao varchar, imagem varchar, latitude real, longitude real)";
     await db.execute(sql);
   });
 
